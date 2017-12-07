@@ -1,0 +1,19 @@
+PODS:
+  - Masonry (1.1.0)
+  - ZXCardView (0.1.0):
+    - Masonry
+
+DEPENDENCIES:
+  - ZXCardView (from `../`)
+
+EXTERNAL SOURCES:
+  ZXCardView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ZXCardView: 1870196b183dd942fb974596ac5c74c898b34596
+
+PODFILE CHECKSUM: 97cad808d825bcc82f356cafcb006785474f4986
+
+COCOAPODS: 1.4.0.beta.2

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ZXCardView_Example' do
+  pod 'ZXCardView', :path => '../'
+
+  target 'ZXCardView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
