@@ -18,7 +18,7 @@ CGFloat const ItemMargin = 8.0;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIScrollView *panScrollView;
 @property (nonatomic, strong) NSTimer *timer;
-
+@property (nonatomic, assign) NSInteger index;
 @end
 
 @implementation ZXCardView
@@ -98,6 +98,13 @@ CGFloat const ItemMargin = 8.0;
     [self.collectionView reloadData];
     [self.panScrollView scrollsToTop];
 }
+- (void)setIndex:(NSInteger)index
+{
+    _index = index;
+    if (self.[delegate && self.delegate respondsToSelector:@selector(cardView:didScrollToIndex:)]) {
+        [self.delegate cardView:self didScrollToIndex:_index];
+    }
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -131,6 +138,16 @@ CGFloat const ItemMargin = 8.0;
 {
     if (scrollView == _panScrollView) {
         _collectionView.contentOffset = _panScrollView.contentOffset;
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+
+    if (scrollView == _panScrollView) {
+        NSInteger index = _panScrollView.contentOffset.x / _panScrollView.frame.size.width;
+        if (self.index != index) {
+            self.index = index;
+        }
     }
 }
 @end
