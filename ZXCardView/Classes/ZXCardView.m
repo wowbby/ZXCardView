@@ -101,7 +101,7 @@ CGFloat const ItemMargin = 8.0;
 - (void)setIndex:(NSInteger)index
 {
     _index = index;
-    if (self.[delegate && self.delegate respondsToSelector:@selector(cardView:didScrollToIndex:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(cardView:didScrollToIndex:)]) {
         [self.delegate cardView:self didScrollToIndex:_index];
     }
 }
