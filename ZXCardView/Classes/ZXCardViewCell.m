@@ -15,6 +15,9 @@
     if (self = [super initWithFrame:frame]) {
 
         [self.contentView addSubview:self.cardView];
+        self.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.layer.shadowRadius = 5.0f;
+        self.layer.shadowOpacity = 0.7;
     }
     return self;
 }
